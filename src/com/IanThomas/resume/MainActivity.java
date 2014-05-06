@@ -5,11 +5,13 @@ import android.app.Activity;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.Window;
 
 import com.IanThomas.resume.adapters.ResumeFragmentPagerAdapter;
 import com.IanThomas.resume.transformers.CubeTransformer;
+import com.IanThomas.resume.views.NavigatorView;
 
 public class MainActivity extends Activity {
 
@@ -25,6 +27,26 @@ public class MainActivity extends Activity {
 		final ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
 		mViewPager.setAdapter(mSectionsPagerAdapter);
 		mViewPager.setPageTransformer(true, new CubeTransformer());
+
+		final NavigatorView navView = (NavigatorView) findViewById(R.id.navigator);
+		navView.setFragments(mSectionsPagerAdapter.getFragments());
+
+		mViewPager.setOnPageChangeListener(new OnPageChangeListener() {
+
+			@Override
+			public void onPageSelected(int position) {
+			}
+
+			@Override
+			public void onPageScrolled(int position, float positionOffset,
+					int positionOffsetPixels) {
+				navView.onPageScrolled(position, positionOffset);
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int position) {
+			}
+		});
 	}
 
 	@SuppressLint("InlinedApi")

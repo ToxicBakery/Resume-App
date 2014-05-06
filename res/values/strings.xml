@@ -10,14 +10,18 @@
     <!-- Fragment Nav -->
     <string name="fragment_nav_arrow">Swipe or click for the next page.</string>
     <!-- Fragment Home -->
-    <string name="fragment_home_title">Ian Thomas</string>
+    <string name="fragment_home_title">Contact</string>
+    <string name="fragment_home_ian_thomas">Ian Thomas</string>
     <string name="fragment_home_profile_picture">Photo of Ian Thomas</string>
     <string name="fragment_home_location">Locate Ian Thomas</string>
     <string name="fragment_home_email">Email Ian Thomas!</string>
     <string name="fragment_home_linked_in">LinkedIn for Ian Thomas</string>
     <string name="fragment_home_about_me">An avid Android Developer always looking to improve his knowledge and skills in Java and the Android SDK. Also has experience working in many web technologies such as AS3, PHP, MySQL, jQuery, and more.</string>
     <!-- Fragment Projects -->
+    <string name="fragment_projects_title">Projects</string>
     <string name="fragment_projects_date_present">Present</string>
     <string name="fragment_projects_project_image">Image logo for the project.</string>
+    <!-- Fragment Experience -->
+    <string name="fragment_experience_title">Experience</string>
 
 </resources>

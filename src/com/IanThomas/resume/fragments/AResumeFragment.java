@@ -22,6 +22,8 @@ public abstract class AResumeFragment extends Fragment implements
 
 	protected boolean mHasNextPage;
 	protected boolean mHasPreviousPage;
+	
+	public abstract int getTitleResId();
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

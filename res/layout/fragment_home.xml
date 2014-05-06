@@ -28,7 +28,7 @@
         android:layout_alignTop="@+id/fragment_home_imageview_profile_pic"
         android:layout_marginLeft="@dimen/padding_medium"
         android:layout_toRightOf="@+id/fragment_home_imageview_profile_pic"
-        android:text="@string/fragment_home_title"
+        android:text="@string/fragment_home_ian_thomas"
         android:textColor="@android:color/holo_green_dark"
         android:textSize="28sp" />
 

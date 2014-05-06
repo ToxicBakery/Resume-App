@@ -49,4 +49,8 @@ public class ResumeFragmentPagerAdapter extends FragmentStatePagerAdapter {
 		return mFragments.size();
 	}
 
+	public ArrayList<Class<? extends AResumeFragment>> getFragments() {
+		return new ArrayList<>(mFragments);
+	}
+
 }

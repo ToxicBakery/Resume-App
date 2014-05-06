@@ -8,11 +8,16 @@ import android.view.ViewGroup;
 import com.IanThomas.resume.R;
 
 public class ProjectsFragment extends AResumeFragment {
+	
+	@Override
+	public int getTitleResId() {
+		return R.string.fragment_projects_title;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		return inflater.inflate(R.layout.fragment_projects, container, false);
 	}
-	
+
 }
