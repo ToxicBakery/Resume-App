@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/view_project_item_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:contentDescription="@string/fragment_projects_project_image"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:layout_toRightOf="@+id/view_project_item_image"
+        android:gravity="center_vertical|left"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/view_project_item_title"
+            style="@android:style/TextAppearance.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="@string/placeholder" />
+
+        <TextView
+            android:id="@+id/view_project_item_date"
+            style="@android:style/TextAppearance.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder"
+            android:textColor="@android:color/holo_green_dark" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/view_project_item_desciption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_project_item_image"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:text="@string/placeholder" />
+
+</merge>

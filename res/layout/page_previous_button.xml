@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/button_page_previous"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="@dimen/minimum_touch_size"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/fragment_nav_arrow"
+        android:scaleType="center"
+        android:src="@drawable/ic_next_item" />
+
+</merge>

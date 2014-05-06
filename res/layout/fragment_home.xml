@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.IanThomas.resume.views.HomeView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.HomeFragment" >
+
+    <View
+        android:id="@+id/fragment_home_center"
+        android:layout_width="50dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/fragment_home_imageview_profile_pic"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignBottom="@+id/fragment_home_center"
+        android:layout_toLeftOf="@+id/fragment_home_center"
+        android:contentDescription="@string/fragment_home_profile_picture"
+        android:src="@drawable/profile_picture" />
+
+    <TextView
+        android:id="@+id/fragment_home_textview_title"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/fragment_home_imageview_profile_pic"
+        android:layout_marginLeft="@dimen/padding_medium"
+        android:layout_toRightOf="@+id/fragment_home_imageview_profile_pic"
+        android:text="@string/fragment_home_title"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="28sp" />
+
+    <ImageView
+        android:id="@+id/fragment_home_imageview_mail"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="@dimen/minimum_touch_size"
+        android:layout_below="@+id/fragment_home_textview_title"
+        android:layout_toRightOf="@+id/fragment_home_imageview_profile_pic"
+        android:contentDescription="@string/fragment_home_email"
+        android:scaleType="center"
+        android:src="@drawable/ic_email" />
+
+    <ImageView
+        android:id="@+id/fragment_home_imageview_location"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="@dimen/minimum_touch_size"
+        android:layout_below="@+id/fragment_home_textview_title"
+        android:layout_toRightOf="@+id/fragment_home_imageview_mail"
+        android:contentDescription="@string/fragment_home_location"
+        android:scaleType="center"
+        android:src="@drawable/ic_location_arrow" />
+
+    <ImageView
+        android:id="@+id/fragment_home_imageview_linked_in"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="@dimen/minimum_touch_size"
+        android:layout_below="@+id/fragment_home_textview_title"
+        android:layout_toRightOf="@+id/fragment_home_imageview_location"
+        android:contentDescription="@string/fragment_home_linked_in"
+        android:scaleType="center"
+        android:src="@drawable/ic_linked_in" />
+
+    <TextView
+        android:id="@+id/fragment_home_textview_about_me"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="244dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/fragment_home_imageview_profile_pic"
+        android:layout_below="@+id/fragment_home_imageview_profile_pic"
+        android:layout_marginTop="@dimen/padding_small"
+        android:text="@string/fragment_home_about_me" />
+
+</com.IanThomas.resume.views.HomeView>

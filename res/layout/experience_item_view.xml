@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <TextView
+        android:id="@+id/view_experience_item_title"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="@string/placeholder"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/view_experience_item_company"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_experience_item_title"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="@string/placeholder"
+        android:textColor="@android:color/secondary_text_light" />
+
+    <TextView
+        android:id="@+id/view_experience_item_date"
+        style="@android:style/TextAppearance.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_experience_item_company"
+        android:text="@string/placeholder"
+        android:textColor="@android:color/holo_green_dark" />
+
+    <TextView
+        android:id="@+id/view_experience_item_pipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/view_experience_item_date"
+        android:layout_marginLeft="@dimen/padding_small"
+        android:layout_marginRight="@dimen/padding_small"
+        android:layout_toRightOf="@+id/view_experience_item_date"
+        android:text="@string/pipe" />
+
+    <TextView
+        android:id="@+id/view_experience_item_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/view_experience_item_date"
+        android:layout_toRightOf="@+id/view_experience_item_pipe"
+        android:text="@string/placeholder"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <TextView
+        android:id="@+id/view_experience_item_desciption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view_experience_item_date"
+        android:layout_marginTop="@dimen/padding_small"
+        android:paddingLeft="@dimen/padding_small"
+        android:paddingRight="@dimen/padding_small"
+        android:text="@string/placeholder" />
+
+</merge>
