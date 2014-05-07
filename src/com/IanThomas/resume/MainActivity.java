@@ -27,7 +27,7 @@ public class MainActivity extends RajawaliActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		
+
 		// Init the 3D engine for the background
 		mLayout = (FrameLayout) LayoutInflater.from(this).inflate(
 				R.layout.activity_main, null, false);
@@ -63,7 +63,16 @@ public class MainActivity extends RajawaliActivity {
 			}
 
 			@Override
-			public void onPageScrollStateChanged(int position) {
+			public void onPageScrollStateChanged(int state) {
+				/*
+				 * TODO If the GPU is "meh" pause background rendering while the
+				 * foreground updates. Looking at you Galaxy Nexus.
+				 */
+				// if (state == 0) {
+				// mSurfaceView.onResume();
+				// } else {
+				// mSurfaceView.onPause();
+				// }
 			}
 		});
 	}
