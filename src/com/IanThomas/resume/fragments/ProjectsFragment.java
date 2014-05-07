@@ -1,5 +1,6 @@
 package com.IanThomas.resume.fragments;
 
+import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,8 +8,8 @@ import android.view.ViewGroup;
 
 import com.IanThomas.resume.R;
 
-public class ProjectsFragment extends AResumeFragment {
-	
+public class ProjectsFragment extends Fragment implements IResumeFragment {
+
 	@Override
 	public int getTitleResId() {
 		return R.string.fragment_projects_title;

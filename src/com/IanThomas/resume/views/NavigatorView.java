@@ -2,6 +2,7 @@ package com.IanThomas.resume.views;
 
 import java.util.ArrayList;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
@@ -13,7 +14,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.IanThomas.resume.fragments.AResumeFragment;
+import com.IanThomas.resume.fragments.IResumeFragment;
 
 public class NavigatorView extends View {
 
@@ -145,16 +146,15 @@ public class NavigatorView extends View {
 		}
 	}
 
-	public void setFragments(
-			ArrayList<Class<? extends AResumeFragment>> fragments) {
+	public void setFragments(ArrayList<Class<? extends Fragment>> fragments) {
 
 		Resources res = getResources();
 		mFragmentTitles.clear();
 
-		for (Class<? extends AResumeFragment> fragment : fragments) {
+		for (Class<? extends Fragment> fragment : fragments) {
 			try {
-				mFragmentTitles.add(res.getString(fragment.newInstance()
-						.getTitleResId()));
+				mFragmentTitles.add(res.getString(((IResumeFragment) fragment
+						.newInstance()).getTitleResId()));
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

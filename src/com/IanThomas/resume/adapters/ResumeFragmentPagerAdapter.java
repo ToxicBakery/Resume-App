@@ -4,17 +4,15 @@ import java.util.ArrayList;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.os.Bundle;
 import android.support.v13.app.FragmentStatePagerAdapter;
 
-import com.IanThomas.resume.fragments.AResumeFragment;
 import com.IanThomas.resume.fragments.ExperienceFragment;
-import com.IanThomas.resume.fragments.ProjectsFragment;
 import com.IanThomas.resume.fragments.HomeFragment;
+import com.IanThomas.resume.fragments.ProjectsFragment;
 
 public class ResumeFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
-	private final ArrayList<Class<? extends AResumeFragment>> mFragments;
+	private final ArrayList<Class<? extends Fragment>> mFragments;
 
 	public ResumeFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
@@ -28,14 +26,7 @@ public class ResumeFragmentPagerAdapter extends FragmentStatePagerAdapter {
 	@Override
 	public Fragment getItem(int position) {
 		try {
-			final Bundle bundle = new Bundle();
-			bundle.putBoolean(AResumeFragment.EXTRA_HAS_NEXT_PAGE,
-					position + 1 < getCount());
-			bundle.putBoolean(AResumeFragment.EXTRA_HAS_PREVIOUS_PAGE,
-					position != 0);
-
 			final Fragment fragment = mFragments.get(position).newInstance();
-			fragment.setArguments(bundle);
 
 			return fragment;
 		} catch (Exception e) {
@@ -49,7 +40,7 @@ public class ResumeFragmentPagerAdapter extends FragmentStatePagerAdapter {
 		return mFragments.size();
 	}
 
-	public ArrayList<Class<? extends AResumeFragment>> getFragments() {
+	public ArrayList<Class<? extends Fragment>> getFragments() {
 		return new ArrayList<>(mFragments);
 	}
 
