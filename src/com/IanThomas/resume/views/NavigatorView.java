@@ -14,27 +14,24 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.IanThomas.resume.fragments.AResumeFragment;
-import com.IanThomas.resume.utils.ResumeMath;
 
 public class NavigatorView extends View {
 
-	private static final float FADE_DURATION_MILLI = 1000;
-	private static final int MARGIN = 30;
-	private static final int HEIGHT_PER_FRAGMENT = 150;
-	private static final int FRAGMENT_INDICATOR_RADIUS = 10;
+	private static final float MARGIN = 30;
+	private static final float INDICATOR_RADIUS = 10;
 
 	private final ArrayList<String> mFragmentTitles = new ArrayList<>();
 
 	private volatile int mPosition;
 	private volatile float mPositionOffset;
-	private volatile long mLastChange;
 
 	private float mDensity;
 	private Paint mPaintNavBar;
 	private Paint mPaintNavBarSelected;
 	private Paint mPaintText;
 	private Paint mPaintBackground;
-	private RectF mRectBar;
+	private Paint mPaintBackgroundBorder;
+	private RectF mRectBackground;
 
 	public NavigatorView(Context context) {
 		super(context);
@@ -56,11 +53,16 @@ public class NavigatorView extends View {
 		mDensity = res.getDisplayMetrics().density;
 
 		mPaintNavBar = new Paint();
+		mRectBackground = new RectF();
+
+		mRectBackground.top = -MARGIN * 4f;
+		mRectBackground.bottom = MARGIN * 5f;
+		mRectBackground.left = -50 * mDensity;
 
 		final Typeface tf = Typeface.create("Roboto", Typeface.NORMAL);
 
 		mPaintNavBar.setColor(res.getColor(android.R.color.holo_orange_dark));
-		mPaintNavBar.setStyle(Style.FILL_AND_STROKE);
+		mPaintNavBar.setStyle(Style.STROKE);
 		mPaintNavBar.setStrokeCap(Cap.BUTT);
 		mPaintNavBar.setStrokeWidth(mDensity * 4);
 		mPaintNavBar.setTextSize(20 * res.getDisplayMetrics().scaledDensity);
@@ -78,65 +80,69 @@ public class NavigatorView extends View {
 		mPaintBackground.setStyle(Style.FILL);
 		mPaintBackground.setColor(res.getColor(android.R.color.white));
 
-		mRectBar = new RectF();
+		mPaintBackgroundBorder = new Paint();
+		mPaintBackgroundBorder.setStyle(Style.STROKE);
+		mPaintBackgroundBorder.setStrokeWidth(1f);
+		mPaintBackgroundBorder.setAntiAlias(true);
+		mPaintBackgroundBorder.setColor(0xFFCCCCCC);
 	}
 
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 
-		final int alpha = (int) (255 * ResumeMath
-				.clamp((FADE_DURATION_MILLI - (System.currentTimeMillis() - mLastChange))
-						/ FADE_DURATION_MILLI, 0f, 1f));
+		// Update the background dimensions
+		mRectBackground.right = getWidth() + (50 * mDensity);
 
-		mPaintNavBar.setAlpha(alpha);
-		mPaintNavBarSelected.setAlpha(alpha);
-		mPaintText.setAlpha(alpha);
-		mPaintBackground.setAlpha((int) (alpha / 3.5f));
+		// Use 90% of the width
+		final float width = getWidth() * 0.9f;
+		final float start = (getWidth() - width) * 0.5f;
+		final float segmentLength = width / (mFragmentTitles.size() - 1);
 
-		float yOffset = (mPosition * HEIGHT_PER_FRAGMENT)
-				+ (HEIGHT_PER_FRAGMENT * mPositionOffset);
+		// Determine the position for coloring
+		int position = 0;
+		if (mPosition != 0 && mPositionOffset < 0.5f) {
+			position = mPosition;
+		} else if (mPosition + 1 < mFragmentTitles.size()
+				&& mPositionOffset > 0.5f) {
+			position = mPosition + 1;
+		}
 
-		canvas.drawRect(0, 0, canvas.getWidth(), canvas.getHeight(),
-				mPaintBackground);
+		// Determine the xOffset for the segments
+		final float center = start + (width / 2f);
+		final float xOffset = center
+				+ (segmentLength - ((mPosition + 1) * segmentLength))
+				- (mPositionOffset * segmentLength);
+
+		// Draw a background
+		canvas.drawOval(mRectBackground, mPaintBackground);
+		canvas.drawOval(mRectBackground, mPaintBackgroundBorder);
+
+		// Write text
+		final String text = mFragmentTitles.get(position);
+		final float textWidth = mPaintText.measureText(text);
+		mPaintText.setAlpha((int) (255 * Math.abs((mPositionOffset * 2) - 1)));
+		canvas.drawText(text, center - textWidth / 2, MARGIN * 4f, mPaintText);
 
 		for (int i = 0, j = mFragmentTitles.size(); i < j; ++i) {
-			int position = 0;
-			if (mPosition != 0 && mPositionOffset < 0.5f) {
-				position = mPosition;
-			} else if (mPosition + 1 < j && mPositionOffset > 0.5f) {
-				position = mPosition + 1;
-			}
 
+			final float segmentOffset = segmentLength * i;
 			final Paint drawPaint = i == position ? mPaintNavBarSelected
 					: mPaintNavBar;
 
-			mPaintText.setColor(drawPaint.getColor());
+			// Draw the segments
+			if (i + 1 != j) {
+				final float offsetLength = xOffset + segmentOffset;
+				canvas.drawLine(offsetLength + (INDICATOR_RADIUS * 1.5f),
+						MARGIN, offsetLength + segmentLength
+								- (INDICATOR_RADIUS * 1.5f), MARGIN,
+						mPaintNavBar);
+			}
 
-			// Draw Indicators
-			canvas.drawCircle(mRectBar.left, mRectBar.top - yOffset
-					+ (i * HEIGHT_PER_FRAGMENT), FRAGMENT_INDICATOR_RADIUS,
-					drawPaint);
-
-			final float yTop = mRectBar.top - yOffset
-					+ (i * HEIGHT_PER_FRAGMENT) + FRAGMENT_INDICATOR_RADIUS;
-
-			// Draw text
-			canvas.drawText(mFragmentTitles.get(i), mRectBar.left
-					+ (mDensity * MARGIN), yTop, mPaintText);
-
-			// Draw bars except for the last fragment
-			if (i + 1 == j)
-				break;
-
-			canvas.drawLine(mRectBar.left, yTop + mDensity * 2, mRectBar.left,
-					yTop + HEIGHT_PER_FRAGMENT
-							- (FRAGMENT_INDICATOR_RADIUS * 2) - (mDensity * 2),
-					mPaintNavBar);
+			// Draw the indicators
+			canvas.drawCircle(xOffset + (segmentLength * i), MARGIN,
+					INDICATOR_RADIUS, drawPaint);
 		}
-
-		if (alpha != 0f)
-			postInvalidate();
 	}
 
 	public void setFragments(
@@ -154,19 +160,12 @@ public class NavigatorView extends View {
 			}
 		}
 
-		mRectBar.top = MARGIN * mDensity;
-		mRectBar.bottom = mRectBar.top + (fragments.size() - 1)
-				* HEIGHT_PER_FRAGMENT;
-		mRectBar.left = mRectBar.top;
-		mRectBar.right = mRectBar.left;
-
 		postInvalidate();
 	}
 
 	public void onPageScrolled(int position, float positionOffset) {
 		mPosition = position;
 		mPositionOffset = positionOffset;
-		mLastChange = System.currentTimeMillis();
 		postInvalidate();
 	}
 

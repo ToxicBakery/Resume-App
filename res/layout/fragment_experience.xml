@@ -17,7 +17,7 @@
             android:paddingBottom="@dimen/padding_medium"
             android:paddingLeft="@dimen/padding_medium"
             android:paddingRight="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_medium" />
+            android:paddingTop="@dimen/padding_navigator" />
     </ScrollView>
 
 </com.IanThomas.resume.views.ExperienceView>

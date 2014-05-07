@@ -21,6 +21,8 @@
     <string name="fragment_projects_title">Projects</string>
     <string name="fragment_projects_date_present">Present</string>
     <string name="fragment_projects_project_image">Image logo for the project.</string>
+    <string name="fragment_projects_url">Project URL</string>
+    <string name="fragment_projects_learn_more">More</string>
     <!-- Fragment Experience -->
     <string name="fragment_experience_title">Experience</string>
 
