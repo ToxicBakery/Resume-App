@@ -20,6 +20,7 @@ public class ProjectItemView extends RelativeLayout implements OnClickListener {
 	private TextView mTextViewTitle;
 	private TextView mTextViewDate;
 	private TextView mTextViewDescription;
+	private ImageView mImageViewUrl;
 
 	private DataProject mDataProject;
 
@@ -49,16 +50,19 @@ public class ProjectItemView extends RelativeLayout implements OnClickListener {
 		mTextViewTitle = (TextView) findViewById(R.id.view_project_item_title);
 		mTextViewDate = (TextView) findViewById(R.id.view_project_item_date);
 		mTextViewDescription = (TextView) findViewById(R.id.view_project_item_desciption);
+		mImageViewUrl = (ImageView) findViewById(R.id.view_project_item_url);
 
-		setOnClickListener(this);
+		mImageViewUrl.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		if (v == this) {
+		switch (v.getId()) {
+		case R.id.view_project_item_url:
 			Intent intent = new Intent(Intent.ACTION_VIEW);
 			intent.setData(Uri.parse(mDataProject.getUrl()));
 			getContext().startActivity(intent);
+			break;
 		}
 	}
 

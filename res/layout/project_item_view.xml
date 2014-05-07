@@ -11,8 +11,9 @@
 
     <LinearLayout
         android:id="@+id/view_project_item_text_container"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="75dp"
+        android:layout_toLeftOf="@+id/view_project_item_url"
         android:layout_toRightOf="@+id/view_project_item_image"
         android:gravity="center_vertical|left"
         android:orientation="vertical" >
@@ -37,13 +38,34 @@
 
     <TextView
         android:id="@+id/view_project_item_desciption"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/view_project_item_image"
         android:layout_marginTop="@dimen/padding_small"
+        android:layout_toLeftOf="@+id/view_project_item_url"
         android:paddingLeft="@dimen/padding_small"
         android:paddingRight="@dimen/padding_small"
         android:text="@string/placeholder" />
+
+    <ImageView
+        android:id="@+id/view_project_item_url"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/view_project_item_desciption"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/view_project_item_image"
+        android:clickable="true"
+        android:contentDescription="@string/fragment_projects_url"
+        android:scaleType="center"
+        android:src="@drawable/ic_next_item" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/view_project_item_desciption"
+        android:layout_alignTop="@+id/view_project_item_image"
+        android:layout_toLeftOf="@+id/view_project_item_url"
+        android:background="#ffcccccc" />
 
 </merge>
