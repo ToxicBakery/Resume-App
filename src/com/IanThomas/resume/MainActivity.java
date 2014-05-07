@@ -1,25 +1,44 @@
 package com.IanThomas.resume;
 
+import rajawali.RajawaliActivity;
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.opengl.GLSurfaceView;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.FrameLayout;
 
 import com.IanThomas.resume.adapters.ResumeFragmentPagerAdapter;
+import com.IanThomas.resume.gles.CubeRenderer;
 import com.IanThomas.resume.transformers.CubeTransformer;
 import com.IanThomas.resume.views.NavigatorView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends RajawaliActivity {
+
+	public MainActivity() {
+		deferGLSurfaceViewCreation(true);
+	}
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		
+		// Init the 3D engine for the background
+		mLayout = (FrameLayout) LayoutInflater.from(this).inflate(
+				R.layout.activity_main, null, false);
+		setContentView(mLayout);
+		mSurfaceView = (GLSurfaceView) findViewById(R.id.surface_view);
+		mSurfaceView.setEGLContextClientVersion(2);
+
+		// Init the 3D renderer
+		final CubeRenderer renderer = new CubeRenderer(this);
+		renderer.setSurfaceView(mSurfaceView);
+		setRenderer(renderer);
 
 		final ResumeFragmentPagerAdapter mSectionsPagerAdapter = new ResumeFragmentPagerAdapter(
 				getFragmentManager());
