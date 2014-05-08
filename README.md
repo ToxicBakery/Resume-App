@@ -1,7 +1,7 @@
 Resume-App
 ==========
 
-I was offered an interview with Google so I wanted to do something to help stand out a bit. Thus, my Resume as an Android application. There is a lot I would like to change and add but given the time restraints on this, it was the best I could do.
+I was offered an interview with Google so I wanted to do something to help stand out a bit. Thus, my Resume as an Android application. There is a lot I would like to change and add but given the time restraints this was the best I could do.
 
 ## Cost So Far
  * 25 Hours
