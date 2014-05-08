@@ -49,6 +49,15 @@ public class DataManager {
 	private void buildCreativeWorks() {
 		{
 			DataCreativeWork.Builder builder = new DataCreativeWork.Builder();
+			builder.setImageResource(R.drawable.creative_works_rajawali_examples);
+			builder.setTitle("Rajawali Examples");
+			builder.setDescription("Application demonstrating common use cases for the Rajawali 3D engine. I rewrote this application from its original version to use the Navigation Drawer as well as provide automated links in the examples linking the user back to the class source on GitHub.");
+			builder.setUrl("https://github.com/MasDennis/RajawaliExamples");
+
+			mCreativeWorks.add(builder.build());
+		}
+		{
+			DataCreativeWork.Builder builder = new DataCreativeWork.Builder();
 			builder.setImageResource(R.drawable.creative_works_voice_command);
 			builder.setTitle("Voice Command");
 			builder.setDescription("Open apps with your voice! Access any of your applications in seconds. Customize the names of your applications making them easier to speak. Replace endless pages of apps with a single icon, Voice Command.");

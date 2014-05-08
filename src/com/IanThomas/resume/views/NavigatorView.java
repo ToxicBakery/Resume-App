@@ -127,8 +127,7 @@ public class NavigatorView extends View {
 		final String text = mFragmentTitles.get(position);
 		final float textWidth = mPaintText.measureText(text);
 		mPaintText.setAlpha((int) (255 * Math.abs((mPositionOffset * 2) - 1)));
-		canvas.drawText(text, center - textWidth / 2, mMarginTop * 3.5f,
-				mPaintText);
+		canvas.drawText(text, center - textWidth / 2, mTextTop, mPaintText);
 
 		for (int i = 0, j = mFragmentTitles.size(); i < j; ++i) {
 
