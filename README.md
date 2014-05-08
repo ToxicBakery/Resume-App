@@ -3,6 +3,8 @@ Resume-App
 
 I was offered an interview with Google so I wanted to do something to help stand out a bit. Thus, my Resume as an Android application. There is a lot I would like to change and add but given the time restraints this was the best I could do.
 
+Download the latest build: http://toxicbakery.com/android/resume/Ian-Thomas-Resume.apk
+
 ## Cost So Far
  * 25 Hours
   * For those of you unfamiliar with hourly scales, this project has so far consumed four glasses of quality whiskey.
