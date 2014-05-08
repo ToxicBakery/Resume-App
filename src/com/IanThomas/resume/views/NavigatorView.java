@@ -14,11 +14,11 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.IanThomas.resume.R;
 import com.IanThomas.resume.fragments.IResumeFragment;
 
 public class NavigatorView extends View {
 
-	private static final float MARGIN = 30;
 	private static final float INDICATOR_RADIUS = 10;
 
 	private final ArrayList<String> mFragmentTitles = new ArrayList<>();
@@ -26,7 +26,9 @@ public class NavigatorView extends View {
 	private volatile int mPosition;
 	private volatile float mPositionOffset;
 
+	private float mMarginTop;
 	private float mDensity;
+	private float mTextTop;
 	private Paint mPaintNavBar;
 	private Paint mPaintNavBarSelected;
 	private Paint mPaintText;
@@ -52,12 +54,14 @@ public class NavigatorView extends View {
 
 		Resources res = getResources();
 		mDensity = res.getDisplayMetrics().density;
+		mMarginTop = res.getDimension(R.dimen.navigator_margin_top);
+		mTextTop = res.getDimension(R.dimen.navigator_text_top);
 
 		mPaintNavBar = new Paint();
 		mRectBackground = new RectF();
 
-		mRectBackground.top = -MARGIN * 4f;
-		mRectBackground.bottom = MARGIN * 5f;
+		mRectBackground.top = -res.getDimension(R.dimen.navigator_height);
+		mRectBackground.bottom = -mRectBackground.top;
 		mRectBackground.left = -50 * mDensity;
 
 		final Typeface tf = Typeface.create("Roboto", Typeface.NORMAL);
@@ -123,7 +127,8 @@ public class NavigatorView extends View {
 		final String text = mFragmentTitles.get(position);
 		final float textWidth = mPaintText.measureText(text);
 		mPaintText.setAlpha((int) (255 * Math.abs((mPositionOffset * 2) - 1)));
-		canvas.drawText(text, center - textWidth / 2, MARGIN * 4f, mPaintText);
+		canvas.drawText(text, center - textWidth / 2, mMarginTop * 3.5f,
+				mPaintText);
 
 		for (int i = 0, j = mFragmentTitles.size(); i < j; ++i) {
 
@@ -135,13 +140,13 @@ public class NavigatorView extends View {
 			if (i + 1 != j) {
 				final float offsetLength = xOffset + segmentOffset;
 				canvas.drawLine(offsetLength + (INDICATOR_RADIUS * 1.5f),
-						MARGIN, offsetLength + segmentLength
-								- (INDICATOR_RADIUS * 1.5f), MARGIN,
+						mMarginTop, offsetLength + segmentLength
+								- (INDICATOR_RADIUS * 1.5f), mMarginTop,
 						mPaintNavBar);
 			}
 
 			// Draw the indicators
-			canvas.drawCircle(xOffset + (segmentLength * i), MARGIN,
+			canvas.drawCircle(xOffset + (segmentLength * i), mMarginTop,
 					INDICATOR_RADIUS, drawPaint);
 		}
 	}

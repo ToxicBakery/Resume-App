@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.IanThomas.resume.views.CreativeWorksItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card"
+    android:padding="@dimen/padding_small" >
+
+    <ImageView
+        android:id="@+id/creative_work_logo"
+        android:layout_width="@dimen/creative_work_view_height"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/creative_work_description"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/fragment_creative_work_logo"
+        android:padding="@dimen/padding_small"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/creative_work_title"
+        style="@android:style/TextAppearance.Large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/creative_work_url"
+        android:layout_toRightOf="@+id/creative_work_logo"
+        android:lines="1"
+        android:text="@string/placeholder" />
+
+    <TextView
+        android:id="@+id/creative_work_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/creative_work_title"
+        android:layout_toLeftOf="@+id/creative_work_url"
+        android:layout_toRightOf="@+id/creative_work_logo"
+        android:text="@string/placeholder" />
+
+    <ImageView
+        android:id="@+id/creative_work_url"
+        android:layout_width="@dimen/minimum_touch_size"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/creative_work_description"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:clickable="true"
+        android:contentDescription="@string/fragment_creative_work_url"
+        android:scaleType="center"
+        android:src="@drawable/ic_next_item" />
+
+    <View
+        android:layout_width="1px"
+        android:layout_height="0dp"
+        android:layout_alignBottom="@+id/creative_work_description"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/creative_work_url"
+        android:background="#ffcccccc" />
+
+</com.IanThomas.resume.views.CreativeWorksItemView>

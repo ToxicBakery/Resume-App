@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+<com.IanThomas.resume.views.ProjectItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/card"
+    android:padding="@dimen/padding_small" >
 
     <ImageView
         android:id="@+id/view_project_item_image"
@@ -68,4 +72,4 @@
         android:layout_toLeftOf="@+id/view_project_item_url"
         android:background="#ffcccccc" />
 
-</merge>
+</com.IanThomas.resume.views.ProjectItemView>

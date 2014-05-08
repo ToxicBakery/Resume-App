@@ -11,10 +11,12 @@ public class DataManager {
 
 	private final List<DataProject> mProjects;
 	private final List<DataExperience> mExperience;
+	private final List<DataCreativeWork> mCreativeWorks;
 
 	private DataManager() {
-		mProjects = new ArrayList<DataProject>();
-		mExperience = new ArrayList<DataExperience>();
+		mProjects = new ArrayList<>();
+		mExperience = new ArrayList<>();
+		mCreativeWorks = new ArrayList<>();
 
 		/*
 		 * In the future, this data will be loaded externally. For now just hand
@@ -22,7 +24,7 @@ public class DataManager {
 		 */
 		buildProjects();
 		buildExperience();
-
+		buildCreativeWorks();
 	}
 
 	public static final synchronized DataManager getInstance() {
@@ -38,6 +40,40 @@ public class DataManager {
 
 	public ArrayList<DataExperience> getExperience() {
 		return new ArrayList<>(mExperience);
+	}
+
+	public ArrayList<DataCreativeWork> getCreativeWorks() {
+		return new ArrayList<>(mCreativeWorks);
+	}
+
+	private void buildCreativeWorks() {
+		{
+			DataCreativeWork.Builder builder = new DataCreativeWork.Builder();
+			builder.setImageResource(R.drawable.creative_works_voice_command);
+			builder.setTitle("Voice Command");
+			builder.setDescription("Open apps with your voice! Access any of your applications in seconds. Customize the names of your applications making them easier to speak. Replace endless pages of apps with a single icon, Voice Command.");
+			builder.setUrl("https://play.google.com/store/apps/details?id=com.ToxicBakery.apps.voicecommand");
+
+			mCreativeWorks.add(builder.build());
+		}
+		{
+			DataCreativeWork.Builder builder = new DataCreativeWork.Builder();
+			builder.setImageResource(R.drawable.creative_works_bitwave);
+			builder.setTitle("Bit Wave");
+			builder.setDescription("Bit Wave is a live wallpaper where waves of colorful bits flow across the screen. Bit Wave provides several options for customization including touch, color, physics, and performance.");
+			builder.setUrl("https://play.google.com/store/apps/details?id=com.ToxicBakery.lwp.bitwavefree");
+
+			mCreativeWorks.add(builder.build());
+		}
+		{
+			DataCreativeWork.Builder builder = new DataCreativeWork.Builder();
+			builder.setImageResource(R.drawable.creative_works_cube_complex);
+			builder.setTitle("Cube Complex");
+			builder.setDescription("Experience an always changing multi-colored background of shifting cubes that glow with light. The camera and background transition to maintain a clean and unique appearance.");
+			builder.setUrl("https://play.google.com/store/apps/details?id=com.ToxicBakery.lwp.cubecomplexfree");
+
+			mCreativeWorks.add(builder.build());
+		}
 	}
 
 	private void buildProjects() {

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
@@ -39,12 +38,6 @@ public class ProjectItemView extends RelativeLayout implements OnClickListener {
 	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-
-		if (isInEditMode())
-			return;
-
-		LayoutInflater.from(getContext()).inflate(R.layout.project_item_view,
-				this, true);
 
 		mImageViewProjectImage = (ImageView) findViewById(R.id.view_project_item_image);
 		mTextViewTitle = (TextView) findViewById(R.id.view_project_item_title);

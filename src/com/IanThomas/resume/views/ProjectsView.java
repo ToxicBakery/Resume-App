@@ -44,7 +44,7 @@ public class ProjectsView extends AAnimatedRelativeLayout {
 		for (int i = 0, j = projects.size(); i < j; ++i) {
 			DataProject project = projects.get(i);
 			ProjectItemView view = (ProjectItemView) inflater.inflate(
-					R.layout.project_item, mProjectsContainer, false);
+					R.layout.project_item_view, mProjectsContainer, false);
 			view.updateView(project);
 			mProjectsContainer.addView(view);
 

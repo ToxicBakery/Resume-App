@@ -9,6 +9,10 @@
     <string name="error_failed_to_open">Failed to open link</string>
     <!-- Fragment Nav -->
     <string name="fragment_nav_arrow">Swipe or click for the next page.</string>
+    <!-- Fragment  -->
+    <string name="fragment_creative_work">Creative Work</string>
+    <string name="fragment_creative_work_logo">Image of the work</string>
+    <string name="fragment_creative_work_url">Creative Work URL</string>
     <!-- Fragment Home -->
     <string name="fragment_home_title">Contact</string>
     <string name="fragment_home_ian_thomas">Ian Thomas</string>

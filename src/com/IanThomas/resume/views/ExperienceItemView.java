@@ -2,7 +2,6 @@ package com.IanThomas.resume.views;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -32,12 +31,6 @@ public class ExperienceItemView extends RelativeLayout {
 	@Override
 	protected void onFinishInflate() {
 		super.onFinishInflate();
-
-		LayoutInflater.from(getContext()).inflate(
-				R.layout.experience_item_view, this, true);
-
-		if (isInEditMode())
-			return;
 
 		mTextViewTitle = (TextView) findViewById(R.id.view_experience_item_title);
 		mTextViewCompany = (TextView) findViewById(R.id.view_experience_item_company);

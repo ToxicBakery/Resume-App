@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+<com.IanThomas.resume.views.ExperienceItemView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/card"
+    android:padding="@dimen/padding_small" >
 
     <TextView
         android:id="@+id/view_experience_item_title"
@@ -60,4 +64,4 @@
         android:paddingRight="@dimen/padding_small"
         android:text="@string/placeholder" />
 
-</merge>
+</com.IanThomas.resume.views.ExperienceItemView>

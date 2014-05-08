@@ -6,6 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.support.v13.app.FragmentStatePagerAdapter;
 
+import com.IanThomas.resume.fragments.CreativeWorkFragment;
 import com.IanThomas.resume.fragments.ExperienceFragment;
 import com.IanThomas.resume.fragments.HomeFragment;
 import com.IanThomas.resume.fragments.ProjectsFragment;
@@ -19,6 +20,7 @@ public class ResumeFragmentPagerAdapter extends FragmentStatePagerAdapter {
 
 		mFragments = new ArrayList<>();
 		mFragments.add(HomeFragment.class);
+		mFragments.add(CreativeWorkFragment.class);
 		mFragments.add(ProjectsFragment.class);
 		mFragments.add(ExperienceFragment.class);
 	}

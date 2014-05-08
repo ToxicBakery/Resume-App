@@ -7,7 +7,11 @@
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_large">16dp</dimen>
     <dimen name="padding_xlarge">48dp</dimen>
-    <dimen name="padding_navigator">64dp</dimen>
     <dimen name="minimum_touch_size">48dp</dimen>
+    <dimen name="creative_work_view_height">96dp</dimen>
+    <dimen name="navigator_margin_top">12dp</dimen>
+    <dimen name="navigator_text_top">42dp</dimen>
+    <dimen name="navigator_height">52dp</dimen>
+    <dimen name="navigator_padding">60dp</dimen>
 
 </resources>

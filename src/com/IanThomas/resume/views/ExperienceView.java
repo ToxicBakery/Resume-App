@@ -44,7 +44,7 @@ public class ExperienceView extends AAnimatedRelativeLayout {
 		for (int i = 0, j = experiences.size(); i < j; ++i) {
 			DataExperience experience = experiences.get(i);
 			ExperienceItemView view = (ExperienceItemView) inflater.inflate(
-					R.layout.experience_item, mExperienceContainer, false);
+					R.layout.experience_item_view, mExperienceContainer, false);
 			view.updateView(experience);
 			mExperienceContainer.addView(view);
 
